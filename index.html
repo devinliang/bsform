@@ -14,17 +14,94 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
+<script type="text/javascript">
+    function evalCheckbox() {
+        var group = document.myform.favchanel;
+        var num = 0;
+        for (var i = 0; i < group.length; i++) {
+            if (group[i].checked)
+                num++;
+        }
+        if (num == 0) {
+            return alert("沒有選中任何選項!");
+        } else {
+            return alert("共選了 " + num + " 個項目!");
+        }
+    }
+</script>
+<script src="https://cdn.ckeditor.com/4.14.0/full/ckeditor.js"></script>
 
 <body>
     <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     <div class="container">
-        <h1>Hello Bootstrap</h1>
+        <h1 class="my-3">Hello Bootstrap</h1>
+        <form action="" method="POST" name="myform">
+
+            <div class="form-group">
+                <label for="chname">中文姓名</label>
+                <input type="text" class="form-control" name="chname" id="chname" placeholder="請輸入你的姓名">
+            </div>
+
+            <div class="form-group">
+                <label for="gender">性別 </label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="M">
+                    <label class="form-check-label" for="inlineRadio1">男生 </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="F">
+                    <label class="form-check-label" for="inlineRadio2">女生 </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="carname">喜歡車廠</label>
+                <select class="form-control" name="carname" id="carname">
+                <option value="1">Please select...</option>
+                <option value="2">TOYOTA</option>
+                <option value="3">HONDA</option>
+                <option value="4">SAAB</option>
+                <option value="5">Volve5</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+                <label for="favchanel">訂閱頻道</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="favchanel" id="inlineCheckbox1" value="生活">
+                    <label class="form-check-label" for="inlineCheckbox1">生活</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="favchanel" id="inlineCheckbox2" value="娛樂">
+                    <label class="form-check-label" for="inlineCheckbox2">娛樂</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="favchanel" id="inlineCheckbox3" value="時事">
+                    <label class="form-check-label" for="inlineCheckbox3">時事</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="favchanel" id="inlineCheckbox4" value="科技">
+                    <label class="form-check-label" for="inlineCheckbox4">科技</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="comments">建議內容</label>
+                <textarea class="form-control" name="comments" id="comments" rows="10"></textarea>
+                <script>
+                    CKEDITOR.replace('comments');
+                </script>
+            </div>
+
+            <input type="button" value="Eval Group" onclick="evalCheckbox()" />
+
+        </form>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft   +2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
 
